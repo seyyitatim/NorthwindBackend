@@ -1,6 +1,6 @@
 # NorthwindBackend Projesidir
 
-##Kullanılan teknolojiler
+## Kullanılan teknolojiler
 
 - Autofac
 - FluentValidation
