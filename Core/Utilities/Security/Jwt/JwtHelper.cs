@@ -24,7 +24,8 @@ namespace Core.Utilities.Security.Jwt
             {
                 Audience = Configuration["TokenOptions:Audience"],
                 Issuer = Configuration["TokenOptions:Issuer"],
-                SecurityKey = Configuration["TokenOptions:SecurityKey"]
+                SecurityKey = Configuration["TokenOptions:SecurityKey"],
+                AccessTokenExpiration = Convert.ToInt32(Configuration["TokenOptions:AccessTokenExpiration"])
             };
             _accessTokenExpiration = DateTime.Now.AddMinutes(tokenOptions.AccessTokenExpiration);
         }

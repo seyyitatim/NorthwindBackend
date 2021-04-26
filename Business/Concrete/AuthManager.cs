@@ -31,8 +31,8 @@ namespace Business.Concrete
                 Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,
-                PassswordHash = passwordHash,
-                PassswordSalt = passwordSalt,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
                 Status = true
             };
             _userService.Add(user);
@@ -47,7 +47,7 @@ namespace Business.Concrete
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
 
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password,userToCheck.PassswordHash,userToCheck.PassswordSalt))
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password,userToCheck.PasswordHash,userToCheck.PasswordSalt))
             {
                 return new ErrorDataResult<User>(Messages.PasswordError);
             }
