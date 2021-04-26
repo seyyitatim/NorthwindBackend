@@ -5,6 +5,7 @@ using System.Text;
 using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -36,7 +37,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
-        [ValidationAspect(typeof(ProductValidator))]
+        [ValidationAspect(typeof(ProductValidator),Priority = 1)]
         public IResult Add(Product product)
         {
             _productDal.Add(product);
