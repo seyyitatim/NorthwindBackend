@@ -12,7 +12,7 @@ using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
-namespace Business.DependencyResolves.Autofac
+namespace Business.DependencyResolvers.Autofac
 {
     public class AutofacBusinessModule : Module
     {
