@@ -27,11 +27,11 @@ namespace Core.Utilities.Security.Jwt
                 SecurityKey = Configuration["TokenOptions:SecurityKey"],
                 AccessTokenExpiration = Convert.ToInt32(Configuration["TokenOptions:AccessTokenExpiration"])
             };
-            _accessTokenExpiration = DateTime.Now.AddMinutes(tokenOptions.AccessTokenExpiration);
         }
 
         public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)
         {
+            _accessTokenExpiration = DateTime.Now.AddMinutes(tokenOptions.AccessTokenExpiration);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey);
             var signinCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
             var jwt = CreateJwtSecurityToken(tokenOptions, user, signinCredentials, operationClaims);
